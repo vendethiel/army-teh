@@ -1,0 +1,31 @@
+h1 Recherche
+
+.search(ng-controller="SearchController")
+  form.search(ng-submit="submit()")
+    .align.from-group
+      label(for="name") Nom de la recette
+      input(class="form-control" ng-model="search.name" placeholder="test")
+    .align.from-group
+      label(for="category_id") Categorie
+      select( class="form-control" ng-model="search.category_id" ng-options="category.id as category.name for category in categories")
+        option(value="")
+    .align.from-group
+      label(for="ingredients")= 'Ingredients '
+      span(ng-click="addIngredient()") [+]
+      ul
+        li(ng-repeat="ingredient in search.ingredients")
+          input(class="form-inline" ng-model="ingredient.name" placeholder="Ingredient")
+          a(ng-click="removeIngredient($index)") [x]
+    input.btn.btn-success(type="submit" value="Chercher")
+
+  .search-results
+    h4 Resultats ({{results.length || 0}})
+    ul
+      li(ng-repeat="(category, recipes) in results")
+        h4 {{category}}
+        ul
+          li(ng-repeat="recipe in recipes")
+            a(ng-href="recipe/{{recipe.id}}") {{recipe.name}}
+
+hr
+a(href="/") Retour

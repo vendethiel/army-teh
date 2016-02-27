@@ -1,0 +1,24 @@
+form.recipe-form(ng-show="showForm" ng-controller="NewRecipeController" ng-submit="save() ")
+  fieldset
+    legend Nouvelle Recette:
+    .align.form-group
+      label(for="name") Nom de la recette
+      input(class="form-control" ng-model="newRecipe.name" placeholder="Nom de la Recette")
+    .align.form-group
+      label(for="description") Description / Realisation
+      textarea(rows="4" class="form-control sizetext" ng-model="newRecipe.description" placeholder="Description")
+    .align.form-group
+      label(for="category_id") Categorie
+        span.new-category-button(ng-click="addCategory()")= ' [+]'
+      select(class="form-control" ng-model="newRecipe.category_id")
+        option(ng-repeat="category in categories" value="{{category.id}}") {{category.name}}
+    .align.form-group
+      label(for="ingredients") Ingredients
+        a(ng-click="addIngredient()")= ' [+]'
+      ul
+        li(ng-repeat="newIngredient in newRecipe.ingredients")
+          input(class="form-line" ng-model="newIngredient.count" placeholder="Nombre")
+          = ' de '
+          input(ng-model="newIngredient.name" placeholder="Nom")
+          a(ng-click="removeIngredient($index)") [x]
+    input(class="form-control btn-success" type="submit" value="Enregistrer")

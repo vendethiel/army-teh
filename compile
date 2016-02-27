@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+case $1 in
+  js)
+    NODE_PATH=./node_modules ./node_modules/.bin/watchify -t [ browserify-ng-html2js --module templates --baseDir _dist/templates --stripPathBefore /templates/ --prefix . --requireAngular ] -t [ anyify --ls [ livescript?compile ] ] -t bulkify frontend/index.ls -o dist/bundle.js
+    ;;
+  tpl)
+    ./node_modules/.bin/jade -w frontend/templates/ -o frontend/_dist/templates/
+    ;;
+  css)
+    ./node_modules/.bin/stylus -w frontend/styles -o dist
+    ;;
+  *)
+    echo "No such type: $1"
+    ;;
+esac

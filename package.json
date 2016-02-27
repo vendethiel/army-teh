@@ -1,0 +1,19 @@
+{
+  "name": "marmiton",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-resource": "^1.4.9",
+    "angular-route": "^1.4.9",
+    "sugar": "^1.4.1"
+  },
+  "devDependencies": {
+    "anyify": "^1.0.0",
+    "browserify-ng-html2js": "^1.1.5",
+    "bulkify": "^1.1.1",
+    "livescript": "^1.4.0",
+    "require-globify": "^1.3.0",
+    "stylus": "^0.53.0",
+    "watchify": "^3.7.0"
+  }
+}

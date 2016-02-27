@@ -1,0 +1,11 @@
+form.com(ng-controller="NewCommentController" ng-submit="save()")
+  fieldset
+  legend Nouveaux Commentaire:
+  .align.from-group
+    label(for="author") Auteur
+    input(class="form-control" ng-model="newComment.author" placeholder="Auteur")
+  .align.from-group
+    label(for="content") Contenu
+    textarea(class="form-control" ng-model="newComment.content" placeholder="Comentaire")
+  br
+  input.btn.btn-success.form-control(type="submit" value="Envoyer")

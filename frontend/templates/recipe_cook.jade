@@ -1,0 +1,14 @@
+h4 Mode Cuisine
+div(ng-controller="RecipeCookController")
+  ul
+    li(ng-repeat="step in steps")
+      input(type="checkbox" ng-checked="$index < currentStep")
+      span(ng-class="{'current-step': $index == currentStep, 'done-step': $index < currentStep}") {{step}}
+
+  span.cook-ready(ng-show="currentStep == steps.length")
+    | Bravo ! Plus qu'a deguster !
+    | #[br]#[br]
+
+  | [ #[a.step-link(ng-click="prevStep()") Prec ]
+  | | #[a.step-link(ng-click="nextStep()") Suiv] ] 
+

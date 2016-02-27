@@ -1,0 +1,10 @@
+h3 {{count}} derniere(s) recette(s)
+
+ul
+  li(ng-repeat="recipe in recipes")= '[{{recipe.category.name}}] '
+    a(href="/recipe/{{recipe.id}}") {{recipe.name}}
+
+br
+br
+
+a(href="/") Retour

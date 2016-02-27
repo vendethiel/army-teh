@@ -1,0 +1,12 @@
+{
+    "name": "vendethiel/marmiton",
+    "require": {
+        "minima-php/minima-php": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "vendethiel",
+            "email": "vendethiel@hotmail.fr"
+        }
+    ]
+}

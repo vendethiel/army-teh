@@ -1,0 +1,26 @@
+h1 Recette : {{recipe.name}} [{{recipe.category.name}}]
+
+h4 Ingredients
+ul
+  li(ng-repeat="ingredient in recipe.ingredients")
+    | {{ingredient.count}} de {{ingredient.name}}
+
+| [ #[a.mode-link(ng-click="mode = 'description'") Mode Description ]
+| | #[a.mode-link(ng-click="mode = 'cook'") Mode Cuisine] ]
+
+div(ng-show="mode == 'cook'")
+  include recipe_cook
+
+div(ng-show="mode == 'description'")
+  h3 Preparation
+  pre {{recipe.description}}
+
+h4 Commentaires
+
+  div(ng-repeat="comment in recipe.comments").all_comment
+      p {{comment.content}}
+      h5 Par #[i {{comment.author}}]
+      hr
+  include comment_form
+
+a(href="/")   Retour
